@@ -1,0 +1,15 @@
+#Linux Config dotfiles
+## About
++ **Distro**: Solus 3.9999
++ **WM**: i3-gaps
++ **Terminal**: gnome-terminal
++ **File Manager**: Nautilus
++ **App Launcher/Switcher**: Rofi
++ **Text Editor**: Gedit and VS Code
++ **Browsers**: Firefox
++ **Icons**: [Zafiro](https://github.com/zayronxio/Zafiro-icons)
++ **Color Scheme**: Mostly [Nord](https://github.com/arcticicestudio/nord)
+
+## Latest preview
+![Screenshot](./previews/clean.png?raw=true "Latest")
+
