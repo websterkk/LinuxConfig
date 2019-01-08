@@ -1,4 +1,4 @@
-#Linux Config dotfiles
+# Linux Config dotfiles
 ## About
 + **Distro**: Solus 3.9999
 + **WM**: i3-gaps
@@ -10,6 +10,6 @@
 + **Icons**: [Zafiro](https://github.com/zayronxio/Zafiro-icons)
 + **Color Scheme**: Mostly [Nord](https://github.com/arcticicestudio/nord)
 
-## Latest preview
+## Preview
 ![Screenshot](./previews/clean.png?raw=true "Latest")
-
+![Screenshot](./previews/busy.png?raw=true "Latest")
