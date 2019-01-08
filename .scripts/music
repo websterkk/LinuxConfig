@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gnome-terminal -e sleep 1 && mpd && ncmpcpp
