@@ -5,7 +5,7 @@
 + **Terminal**: gnome-terminal
 + **File Manager**: Nautilus
 + **App Launcher/Switcher**: Rofi
-+ **Text Editor**: Gedit and VS Code
++ **Text Editor**: Gedit and Sublime Text
 + **Browsers**: Firefox
 + **Icons**: [Zafiro](https://github.com/zayronxio/Zafiro-icons)
 + **Color Scheme**: Mostly [Nord](https://github.com/arcticicestudio/nord)
