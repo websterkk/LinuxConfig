@@ -8,7 +8,7 @@
 + **Text Editor**: Gedit and Sublime Text
 + **Browsers**: Firefox
 + **Icons**: [Zafiro](https://github.com/zayronxio/Zafiro-icons)
-+ **GTK Theme**: Adapta Nocto ETA
++ **GTK Theme**: [Adapta Nocto ETA](https://github.com/adapta-project/adapta-gtk-theme)
 + **Color Scheme**: Mostly [Nord](https://github.com/arcticicestudio/nord)
 
 ## Preview
