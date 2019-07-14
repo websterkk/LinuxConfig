@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo mount -o loop ~/Documents/Games/DOS/Titanic/taoot/Titanic_CD1.iso ~/.wine/titanic/
+sudo mount -o loop ~/Documents/Games/DOS/Titanic/taoot/Titanic_CD2.iso ~/.wine/titanic2/
+

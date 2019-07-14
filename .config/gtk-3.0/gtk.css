@@ -1,0 +1,7 @@
+gnome-terminal {
+    padding: 20px;
+}
+
+vte-terminal {
+    padding: 20px 20px 20px 20px;
+}

@@ -1,6 +1,8 @@
 configuration {
     show-icons: true;
-    drun-icon-theme: "Papirus-Dark" ;
+    drun-icon-theme: "Papirus-Dark";
+    display-drun: "Launch";
+    display-run: "Execute";
 }
 * {
     black:                       #2E3440;

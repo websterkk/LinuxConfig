@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# rofi-power
+# Use rofi to call systemctl for shutdown, reboot, etc
+
+# 2016 Oliver Kraitschy - http://okraits.de
+
+OPTIONS="Capture Entire Screen\nCapture Selected Window\nSelect Screen Area"
+
+LAUNCHER="rofi -width 30 -dmenu -i -p screen-shot:"
+
+option=`echo -e $OPTIONS | $LAUNCHER | awk '{print $1}' | tr -d '\r\n'`
+if [ ${#option} -gt 0 ]
+then
+    case $option in
+      Entire)
+        echo "test"
+        ;;
+      Reboot)
+        gnome-screenshot -w
+        ;;
+      Power-off)
+        gnome-screenshot -a
+        ;;
+      *)
+        ;;
+    esac
+fi

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+read -p 'URL: ' siteurl
+
+youtube-dl --extract-audio --audio-format mp3 $siteurl -o "~/Downloads/%(title)s.%(ext)s"

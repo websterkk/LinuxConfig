@@ -1,0 +1,341 @@
+[bar/kasey]
+
+;------------;
+; DIMENSIONS ;
+;------------;
+width = 100%
+height = 26
+offset-y = 0
+offset-x = 0
+line-color = #ffffff
+
+border-top-size = 0
+border-bottom-size = 0
+border-right-size=0
+border-left-size=0
+monitor-strict=true
+radius = 5.0
+
+;----------;
+; LOCATION ;
+;----------;
+bottom = false
+monitor = eDP1
+wm-restack = nont
+override-redirect = false
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+;-------;
+; FONTS ;
+;-------;
+font-0 = hack:size=9;3
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=9;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=9;3"
+font-3 = "Font Awesome 5 Brands:pixelsize=9;3"
+
+font-4 = "Terminus:pixelsize=10;2"
+font-5 = "FontAwesome:pixelsize=10;2"
+
+;-----------------------------;
+;------------ COLORS ---------;
+;-----------------------------;
+border-color = #2e3440
+background = #2e3440
+foreground = #d8dee9
+;foreground = ${xrdb:color7:#222}
+;foreground = #dfdfdf
+;foreground = #ffffff
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+
+
+
+;---------------;
+; MISCELLANEOUS ;
+;---------------;
+fixed-center = true
+padding-left = 2
+padding-right = 2
+module-margin = 1.5
+separator = "|"
+#C O M F Y
+modules-center = mpd
+modules-left = i3
+modules-right = date time backlight volume network battery2 battery
+
+;tray-position = right
+;tray-padding = 0
+;tray-detached = true
+;enable-ipc = true
+
+
+
+;-----------------------------;
+;---------- MODULES ----------;
+;-----------------------------;
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = false
+;strip-wsnumbers = true
+;wrapping-scroll = true
+index-sort = true
+#label-focused-background = #000000
+label-unfocused-foreground = #58637A
+label-focused-foreground = #8fbcbb
+label-focused-underline = #8fbcbb
+label-mode-padding = 10px
+label-mode-foreground = #000000
+label-mode-background = #ffffff
+#label-urgent-foreground = #ff0000
+ws-icon-0=1; 
+ws-icon-1=2; 
+ws-icon-2=3; 
+ws-icon-3=4; 
+ws-icon-4=5; 
+ws-icon-default = 
+label-focused = %icon%
+label-unfocused = %icon%
+label-visible = %icon%
+label-urgent = %icon%
+label-focused-padding = 1
+label-unfocused-padding = 1
+label-visible-padding = 1
+
+
+
+[module/time]
+type = internal/date
+interval = 1.0
+date = %l:%M
+
+
+
+[module/date]
+type = internal/date
+date = %e %b - %a
+label = %date%
+
+
+
+[module/battery]
+type = internal/battery
+
+battery = BAT1
+poll-interval = 5
+full-at = 95
+
+label-discharging = %percentage%
+label-charging = %percentage%
+label-full = %percentage%
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+
+
+[module/battery2]
+type = internal/battery
+
+battery = BAT0
+poll-interval = 5
+full-at = 95
+
+label-discharging = %percentage%
+label-charging = %percentage%
+label-full = %percentage%
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+
+
+[module/volume]
+type = internal/pulseaudio
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+label-volume = %percentage%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted =  %percentage%
+label-muted-foreground = #666
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+;PING SCRIPT
+;
+;
+
+
+[module/info-pingrtt]
+type = custom/script
+exec = ~/Documents/info-pingrtt.sh
+interval = 10
+
+
+
+[module/mpd]
+type = internal/mpd
+alignment = left
+label-offline = -
+format-online = <icon-prev> <toggle> <icon-next> <label-song>
+format-offline = <label-offline>
+host = 127.0.0.1
+port = 6600
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+label-play = play
+label-pause = pause
+label-prev = back
+label-next = next
+
+label-song-maxlen = 45
+label-song-ellipsis = true
+
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+
+
+[module/backlight]
+type = internal/backlight
+enable-scroll=true
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+format = <ramp> <label>
+;format = <ramp>
+label = %percentage%
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+
+[module/network]
+type = internal/network
+interface = wlp3s0
+interval = 3
+
+accumulate-stats = true
+
+;module/network.%downspeed:min:max% and %upspeed:min:max%
+label-connected = %essid%  %downspeed:5%
+label-disconnected = 
+label-disconnected-foreground = #58637A
+format-connected =  <label-connected>
+format-disconnected = <label-disconnected>
+
+
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+
+
+
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+
+
+
+[module/menu1]
+type = custom/menu
+format = <label-toggle> <menu>
+;format-underline = ${colors.white}
+format-padding = 1
+;format-margin = 1
+;format-background = #1D2021
+format-foreground = #d8dee9
+;format-background = ${colors.black}
+
+menu-0-0 = "  "
+menu-0-0-exec = shutdown now
+menu-0-1 = "  "
+menu-0-2 =  "  "   
+menu-0-1-exec = shutdown -r now
+
+label-open = 
+label-close =
+
+
+[module/menu0]
+type = custom/script
+format = <label>
+label = 
+;exec = "~/.scripts/rofi-power"
+
+
+
+[module/title]
+type = internal/xwindow
+; Available tags:
+;   <label> (default)
+format = <label>
+format-background = #2e3440
+format-foreground = #d8dee9
+format-padding = 4
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 85
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+
+
+
+[bar/float]
+inherit = bar/kasey
+background = #ffffff
+# vim: ft=cfg
+

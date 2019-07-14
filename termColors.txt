@@ -1,0 +1,70 @@
+NEON
+
+text: #82EAB8
+bg: #2E3440
+
+#282A36 #F37F97 #5ADECD #F2A272 #8897F4 #C574DD #79E6F3 #FDFDFD
+#414458 #FF4971 #18E3C8 #FF8037 #556FFF #B043D1 #3FDCEE #BEBEC1
+
+
+WHISP
+
+text: #82EAB8
+bg: #2E3440
+
+#4B5E83 #338D90 #337390 #7598A9 #7C8B92 #777B7D #315F5F #3AC7D4
+
+#3FDCEE #556FFF
+
+#315F46 #629278 #439769 #34D87E #15EA62 #008B4D
+
+
+
+[module/arrow1]
+; grey to Blue
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 2
+content-foreground = #00BDBD
+content-background = ${colors.background}
+
+[module/arrow2]
+; grey to Blue
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 2
+content-foreground = #00FEB7
+content-background = #00BDBD
+
+[module/arrow3]
+; grey to Blue
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 2
+content-foreground = #00834A
+content-background = #00FEB7
+
+[module/arrow4]
+; grey to Blue
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 2
+content-foreground = #007979
+content-background = #00834A
+
+[module/arrow5]
+; grey to Blue
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 2
+content-foreground = #00FFFF
+content-background = #007979
+
+[module/arrow6]
+; grey to Blue
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 2
+content-foreground = #1D2330
+content-background = #00FFFF
+
