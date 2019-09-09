@@ -43,15 +43,15 @@ window {
 	location:    west;
 	anchor:      west;
 	height:      100%;
-	width:       22%;
+	width:       23%;
 	orientation: vertical;
 	children:    [mainbox];
-	font: "Ubuntu Mono 12";
+	font: "M+ 1mn bold 11";
 }
 
 mainbox {
-	spacing:  0.8em;
-	children: [ entry,listview,sidebar ];
+	spacing:  0.6em;
+	children: [ entry,listview];
 }
 
 button { padding: 5px 2px; }
@@ -72,7 +72,7 @@ listview {
 	cycle:   true;
 }
 
-element { padding: 10px; }
+element { padding: 11px; }
 
 entry {
 	expand:         false;

@@ -40,19 +40,19 @@ configuration {
 window {
 	location:    center;
 	anchor:      west;
-	height:      310px;
-	width:       24%;
+	height:      345px;
+	width:       25%;
 	orientation: vertical;
 	x-offset:    -12%;
 	children:    [mainbox];
 	border:	     6px;
 	border-color:#ffffff;
-	font: "Ubuntu Mono 12";
+	font: "M+ 1mn bold 11";
 }
 
 mainbox {
 	spacing:  0.8em;
-	children: [ entry,listview,sidebar ];
+	children: [ entry,listview];
 }
 
 button { padding: 5px 2px; }
