@@ -1,6 +1,5 @@
 # Kasey Webster - i3 Config File
 # i3 User Guide - http://i3wm.org/docs/userguide.html
-# Budgie file
 
 ########## Set Variables ########
 # Workspace
@@ -38,8 +37,8 @@ exec --no-startup-id feh --bg-scale ~/.config/i3/bg.jpg
 
 ########## Quick Fix ##########
 bindsym $mod+Control+Insert exec ~/.scripts/polybarstart
-bindsym $mod+Shift+Insert exec ~/.scripts/calibrateScroll
-bindsym $mod+Insert exec ~/.scripts/resetSound
+bindsym $mod+Shift+Insert exec ~/.scripts/calibrateTouchpad
+bindsym $mod+Insert exec ~/.scripts/resetPulseAudio
 
 ######## PROGRAMS #########
 # Games
@@ -49,6 +48,7 @@ for_window [class="Steam"] floating enable
 for_window [class="^Steam$" title="^Steam$"] floating disable
 for_window [class="^Steam$" title="^Friends$"] floating disable
 for_window [class="endless-sky"] floating enable
+for_window [title="^Minecraft"] floating enable
 #for_window [title="^Punch Club"] floating enable
 for_window [class="^KSP"] floating enable
 #for_window [title="^Teslagrad"] floating enable
@@ -62,7 +62,7 @@ for_window [class="^KSP"] floating enable
 
 # Firefox
 #assign [class="Firefox"] → $ffws
-bindsym $mod+Shift+Return $ffws; exec firefox
+bindsym $mod+Shift+Return $ffws; exec firefox -private-window
 
 # Terminal
 #assign [class="terminal"] → $terws
@@ -75,10 +75,11 @@ for_window [title="Software Center"] floating enable
 
 #NCMPCPP
 #assign [class="ncmpcpp"] → $musws
-bindsym $mod+Shift+question exec mpd; exec gnome-terminal -e ncmpcpp
+#bindsym $mod+Shift+question exec mpd; exec gnome-terminal -e ncmpcpp
+bindsym $mod+Shift+question exec ~/.scripts/runNcmpcpp.sh
 
 #VirtualBox
-#for_window [class="VirtualBox Machine"] floating enable
+for_window [class="VirtualBox Machine"] floating enable
 
 #GPG
 for_window [title="pinentry"] floating enable
@@ -92,7 +93,6 @@ bindsym $mod+Shift+s exec i3lock -i ~/.config/i3/lock.png -u # Easier locking
 
 ### Backlight ###
 # Note: If light doesn't work, install xbacklight and 1) uncomment the two lines below.
-# 2) Comment out the exec light lines.
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 #bindsym XF86MonBrightnessUp exec light -A 10 # Increase Brightness
