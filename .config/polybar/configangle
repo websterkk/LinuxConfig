@@ -1,0 +1,381 @@
+
+
+   ██▓███   ▒█████   ██▓    ▓██   ██▓ ▄▄▄▄    ▄▄▄       ██▀███  
+  ▓██░  ██▒▒██▒  ██▒▓██▒     ▒██  ██▒▓█████▄ ▒████▄    ▓██ ▒ ██▒
+  ▓██░ ██▓▒▒██░  ██▒▒██░      ▒██ ██░▒██▒ ▄██▒██  ▀█▄  ▓██ ░▄█ ▒
+  ▒██▄█▓▒ ▒▒██   ██░▒██░      ░ ▐██▓░▒██░█▀  ░██▄▄▄▄██ ▒██▀▀█▄  
+  ▒██▒ ░  ░░ ████▓▒░░██████▒  ░ ██▒▓░░▓█  ▀█▓ ▓█   ▓██▒░██▓ ▒██▒
+  ▒▓▒░ ░  ░░ ▒░▒░▒░ ░ ▒░▓  ░   ██▒▒▒ ░▒▓███▀▒ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
+  ░▒ ░       ░ ▒ ▒░ ░ ░ ▒  ░ ▓██ ░▒░ ▒░▒   ░   ▒   ▒▒ ░  ░▒ ░ ▒░
+  ░░       ░ ░ ░ ▒    ░ ░    ▒ ▒ ░░   ░    ░   ░   ▒     ░░   ░ 
+               ░ ░      ░  ░ ░ ░      ░            ░  ░   ░     
+                             ░ ░           ░                    frost
+
+################################################################################
+# COLORS
+###############################################
+
+[colors]
+bg = #222D31
+fg = ${xrdb:color15:#b9fafc}
+
+active = #0c977f
+inactive  = #086757
+
+black1= ${xrdb:color0:#071017}
+red1 = ${xrdb:color1:#497B5A}
+green1 = ${xrdb:color2:#25C66E}
+yellow1 = ${xrdb:color3:#1C6565}
+blue1 = ${xrdb:color4:#196D6D}
+magenta1 = ${xrdb:color5:#1B5C62}
+cyan1 = ${xrdb:color6:#148A76}
+white1 = ${xrdb:color7:#87b6b7}
+
+black2 = ${xrdb:color8:#222D31}
+red2 = ${xrdb:color9:#52ac70}
+green2 = ${xrdb:color10:#20ff8d}
+yellow2 = ${xrdb:color11:#1b8b8b}
+blue2 = ${xrdb:color12:#179696}
+magenta2 = ${xrdb:color13:#1a7e87}
+cyan2 = ${xrdb:color14:#0fbda0}
+white2 = ${xrdb:color15:#b9fafc}
+
+
+################################################################################
+# KASEY
+###############################################
+
+[bar/kasey]
+monitor = eDP1
+width = 100%
+height = 18
+fixed-center = true
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+background = ${colors.bg}
+
+border-top-size = 4
+border-right-size = 5
+border-left-size = 5
+border-bottom-size = 3
+border-color = #222D31
+
+line-size = 2
+
+font-0 = mono:pixelsize=9:antialias=false;2
+font-1 = TerminessTTF Nerd Font Mono:pixelsize=16:antialias=true;4
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=12;3"
+font-4 = "Font Awesome 5 Brands:pixelsize=12;3"
+
+modules-left = i32 mpdbutton mpdtrack2
+modules-center = 
+modules-right = wlan2 audio2 xbacklight2 battery2 battery date2
+
+
+################################################################################
+# MPDBAR
+###############################################
+
+[bar/mpdbar]
+monitor = eDP1
+width = 100%
+height = 1
+background = #071017
+modules-left = mpdbar
+
+
+################################################################################
+# MPDBUTTON
+##################################################
+
+[module/mpdbutton]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+
+icon-play = " "
+icon-pause = " "
+icon-stop = " "
+icon-prev = "  "
+icon-next = " "
+
+format-online-prefix = %{B#0c977f F#222D31}%{B- F-}
+format-playing-prefix = %{B#0c977f F#222D31}%{B- F-}
+format-paused-prefix = %{B#0c977f F#222D31}%{B- F-}
+format-stopped-prefix = %{B#0c977f F#222D31}%{B- F-}
+format-online-suffix = %{B#0c977f F#222D31}%{B- F-}
+format-playing-suffix = %{B#0c977f F#222D31}%{B- F-}
+format-paused-suffix = %{B#0c977f F#222D31}%{B- F-}
+format-stopped-suffix = %{B#0c977f F#222D31}%{B- F-}
+format-online-foreground = ${colors.fg}
+format-online-background = ${colors.active}
+toggle-on-foreground = ${colors.fg}
+toggle-off-foreground = #55
+
+
+################################################################################
+# MPDTRACK2
+#################################################
+
+[module/mpdtrack2]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+interval = 1
+
+format-online = <label-song> <label-time>
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+label-time = "[%elapsed% / %total%] "
+label-song = " %artist% - %title%"
+
+format-online-prefix = %{B#0c977f F#222D31}%{B- F-}
+format-playing-prefix = %{B#0c977f F#222D31}%{B- F-}
+format-paused-prefix = %{B#0c977f F#222D31}%{B- F-}
+format-stopped-prefix = %{B#0c977f F#222D31}%{B- F-}
+format-online-suffix = %{B#0c977f F#222D31}%{B- F-}
+format-playing-suffix = %{B#0c977f F#222D31}%{B- F-}
+format-paused-suffix = %{B#0c977f F#222D31}%{B- F-}
+format-stopped-suffix = %{B#0c977f F#222D31}%{B- F-}
+format-online-foreground = ${colors.fg}
+format-online-background = ${colors.active}
+#%{B#222D31 F#0c977f}%{B- F-}%{B#0c977f F#222D31}%{B- F-}
+
+
+################################################################################
+# BACKLIGHT
+##################################################
+
+[module/xbacklight2]
+type = internal/xbacklight
+card = intel_backlight
+
+;format = <ramp> <label>
+;format = <ramp>
+format = <label>
+
+label = %percentage%
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+format-prefix = %{B#1b8b8b F#222D31}%{B- F-}%{B#1b8b8b F#222D31}%{B- F-}%{B#1C6565 F#1b8b8b}%{B- F-}
+format-suffix = %{B#1C6565 F#222D31}%{B- F-}
+label-foreground = ${colors.fg}
+label-background = ${colors.yellow1}
+
+
+################################################################################
+# WLAN
+#############################################
+
+[module/wlan2]
+type = internal/network
+interface = wlp3s0
+interval = 3
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-connected = %essid%:%downspeed:5%
+label-disconnected = nope
+format-connected-prefix = %{B#0fbda0 F#222D31}%{B- F-}%{B#0fbda0 F#FFFFFF}%{B- F-}%{B#148A76 F#0fbda0}%{B- F-}
+format-connected-suffix = %{B#148A76 F#222D31}%{B- F-}
+format-disconnected-prefix = %{B#0fbda0 F#222D31}%{B- F-}%{B#0fbda0 F#FFFFFF}down%{B- F-}%{B#148A76 F#0fbda0}%{B- F-}
+format-disconnected-suffix = %{B#148A76 F#222D31}%{B- F-}
+label-connected-foreground = ${colors.fg}
+label-connected-background = #148A76
+label-disconnected-foreground = ${colors.fg}
+label-disconnected-background = #148A76
+
+
+################################################################################
+# DATE
+#############################################
+
+[module/date2]
+type = internal/date
+interval = 1
+date = %l:%M
+format-prefix = %{B#FF00A5 F#222D31}%{B- F-}%{B#FF00A5 F#FFFFFF}%{B- F-}%{B#992C55 F#FF00A5}%{B- F-}
+format-suffix = %{B#992C55 F#222D31}%{B- F-}
+label-foreground = ${colors.fg}
+label-background = #992C55
+
+
+################################################################################
+# AUDIO
+################################################################################
+
+[module/audio2]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+format-volume = <label-volume>
+
+format-muted = <label-muted>
+
+label-volume = %percentage%
+label-muted ="-"
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+
+format-volume-prefix = %{B#179696 F#222D31}%{B- F-}%{B#179696 F#FFFFFF}%{B- F-}%{B#196D6D F#179696}%{B- F-}
+format-volume-suffix = %{B#196D6D F#222D31}%{B- F-}
+format-muted-prefix = %{B#179696 F#222D31}%{B- F-}%{B#179696 F#FFFFFF}%{B- F-}%{B#196D6D F#179696}%{B- F-}
+format-muted-suffix = %{B#196D6D F#222D31}%{B- F-}
+format-headphones-prefix = %{B#179696 F#222D31}%{B- F-}%{B#179696 F#FFFFFF}%{B- F-}%{B#196D6D F#179696}%{B- F-}
+format-headphones-suffix = %{B#196D6D F#222D31}%{B- F-}
+format-volume-background = #196D6D
+format-muted-background = #196D6D
+format-headphones-background = #196D6D
+
+
+################################################################################
+# BATTERY
+################################################################################
+
+[module/battery2]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 95
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+label-discharging = %percentage%
+label-charging = %percentage%
+label-full = %percentage%
+
+format-discharging = <label-discharging>
+format-full = <label-full>
+format-charging = <label-charging>
+
+format-full-prefix = %{B#20ff8d F#222D31}%{B- F-}%{B#20ff8d F#222D31}%{B- F-}%{B#25C66E F#20ff8d}%{B- F-}
+format-full-suffix = %{B#25C66E F#222D31}%{B- F-}
+format-full-foreground = ${colors.fg}
+format-full-background = #25C66E
+
+format-charging-prefix = %{B#20ff8d F#222D31}%{B- F-}%{B#20ff8d F#222D31}%{B- F-}%{B#25C66E F#20ff8d}%{B- F-}
+format-charging-suffix = %{B#25C66E F#222D31}%{B- F-}
+format-charging-foreground = ${colors.fg}
+format-charging-background = #25C66E
+
+format-discharging-prefix = %{B#20ff8d F#222D31}%{B- F-}%{B#20ff8d F#222D31}%{B- F-}%{B#25C66E F#20ff8d}%{B- F-}
+format-discharging-suffix = %{B#25C66E F#222D31}%{B- F-}
+format-discharging-foreground = ${colors.fg}
+format-discharging-background = #25C66E
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 95
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+label-discharging = %percentage%
+label-charging = %percentage%
+label-full = %percentage%
+
+format-discharging = <label-discharging>
+format-full = <label-full>
+format-charging = <label-charging>
+
+format-full-prefix = %{B#20ff8d F#222D31}%{B- F-}%{B#20ff8d F#222D31}%{B- F-}%{B#25C66E F#20ff8d}%{B- F-}
+format-full-suffix = %{B#25C66E F#222D31}%{B- F-}
+format-full-foreground = ${colors.fg}
+format-full-background = #25C66E
+
+format-charging-prefix = %{B#20ff8d F#222D31}%{B- F-}%{B#20ff8d F#222D31}%{B- F-}%{B#25C66E F#20ff8d}%{B- F-}
+format-charging-suffix = %{B#25C66E F#222D31}%{B- F-}
+format-charging-foreground = ${colors.fg}
+format-charging-background = #25C66E
+
+format-discharging-prefix = %{B#20ff8d F#222D31}%{B- F-}%{B#20ff8d F#222D31}%{B- F-}%{B#25C66E F#20ff8d}%{B- F-}
+format-discharging-suffix = %{B#25C66E F#222D31}%{B- F-}
+format-discharging-foreground = ${colors.fg}
+format-discharging-background = #25C66E
+
+
+################################################################################
+# i3
+##############################################################################
+
+[module/i32]
+type = internal/i3
+pin-workspaces = false
+index-sort = true
+enable-click = true
+enable-scroll = true
+wrapping-scroll = true
+reverse-scroll = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+
+format = <label-state>
+
+label-focused = %{B#0c977f F#222D31}%{B- F-}%{B#0c977f F#FFFFFF}%icon%%{B- F-}%{B#0c977f F#222D31}%{B- F-}
+#label-focused-underline = ${colors.red}
+label-focused-background = #000000
+label-focused-foreground = #FF00B3
+
+label-occupied = %icon%
+#label-occupied-underline = ${colors.ul}
+label-occupied-background = ${colors.bg}
+label-occupied-foreground = #FF00B3
+
+label-empty = %icon%
+#label-empty-underline = ${colors.ul}
+label-empty-background = ${colors.bg}
+label-empty-foreground = ${colors.fg}
+
+label-urgent = %{B#086757 F#222D31}%{B- F-}%{B#086757 F#071017}%icon%%{B- F-}%{B#086757 F#222D31}%{B- F-}
+#label-urgent-underline = ${colors.fg}
+label-urgent-background = ${colors.bg}
+label-urgent-foreground = ${colors.fg}
+
+label-unfocused = %{B#086757 F#222D31}%{B- F-}%{B#086757 F#87A7A9}%icon%%{B- F-}%{B#086757 F#222D31}%{B- F-}
+#label-unfocused-underline = ${colors.ul}
+label-unfocused-background = ${colors.bg}
+label-unfocused-foreground = ${colors.fg}
+#label-focused-padding = 1
+#label-unfocused-padding = 1
+#label-occupied-padding = 1
+#label-urgent-padding = 1
+#format-padding-left = 1
+
+--------------------------------------------------------------------------------
+
+[settings]
+screenchange-reload = true
+;compositing-background = source
+
+[global/wm]
+;margin-bottom = 10
+;margin-top = 40
