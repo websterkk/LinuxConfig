@@ -11,14 +11,14 @@
 ## ncmpcpp.
 ##
 #
-ncmpcpp_directory = ~/.config/ncmpcpp
+#ncmpcpp_directory = ~/.ncmpcpp
 #
 ##
 ## Directory for storing downloaded lyrics. It defaults to ~/.lyrics since other
 ## MPD clients (eg. ncmpc) also use that location.
 ##
 #
-lyrics_directory = ~/.config/ncmpcpp/lyrics
+#lyrics_directory = ~/.lyrics
 #
 ##### connection settings #####
 #
@@ -30,7 +30,7 @@ mpd_port = 6600
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = "~/Music"
+mpd_music_dir = ~/Music
 #
 #mpd_crossfade_time = 5
 #
@@ -262,8 +262,6 @@ mpd_music_dir = "~/Music"
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[199]{a} (20)[45]{b} (50)[199]{t|f:Title} (7f)[45]{l}
-song_columns_list_format = (20)[199]{a} (20)[45]{b} (50)[49]{t|f:Title}
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
@@ -319,7 +317,7 @@ song_columns_list_format = (20)[199]{a} (20)[45]{b} (50)[49]{t|f:Title}
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-progressbar_look = ==-
+#progressbar_look = =>
 #
 ## Available values: database, playlist.
 ##
@@ -343,7 +341,7 @@ progressbar_look = ==-
 #
 #default_tag_editor_pattern = %n - %t
 #
-header_visibility = no
+#header_visibility = yes
 #
 #statusbar_visibility = yes
 #
@@ -395,7 +393,7 @@ header_visibility = no
 ##
 ## Note: You can define startup screen by choosing screen from the list above.
 ##
-startup_screen = media_library
+#startup_screen = playlist
 #
 ##
 ## Note: You can define startup slave screen by choosing screen from the list
@@ -433,7 +431,7 @@ startup_screen = media_library
 ## Note: if below is enabled, ncmpcpp will ignore leading "The" word while
 ## sorting items in browser, tags in media library, etc.
 ##
-ignore_leading_the = yes
+#ignore_leading_the = no
 #
 ##
 ## Note: if below is enabled, ncmpcpp will ignore diacritics while searching and
@@ -514,27 +512,27 @@ ignore_leading_the = yes
 #
 #empty_tag_color = cyan
 #
-header_window_color = 45
+#header_window_color = default
 #
-#volume_color = 199:b
+#volume_color = default
 #
-state_line_color = 49
+#state_line_color = default
 #
 #state_flags_color = default:b
 #
-main_window_color = 49
+#main_window_color = yellow
 #
 #color1 = white
 #
 #color2 = green
 #
-progressbar_color = 45:b
+#progressbar_color = black:b
 #
-progressbar_elapsed_color = 49:b
+#progressbar_elapsed_color = green:b
 #
-statusbar_color = 49
+#statusbar_color = default
 #
-statusbar_time_color = 199:b
+#statusbar_time_color = default:b
 #
 #player_state_color = default:b
 #
@@ -542,6 +540,5 @@ statusbar_time_color = 199:b
 #
 #window_border_color = green
 #
-active_window_border = 45
+#active_window_border = red
 #
-fetch_lyrics_for_current_song_in_background = yes
