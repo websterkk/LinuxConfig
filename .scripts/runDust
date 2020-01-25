@@ -1,5 +1,0 @@
-#!/bin/bash
-
-sudo mount -o loop ~/Documents/Games/DOS/dust/dust.iso ~/.wine/dust/
-
-

@@ -9,6 +9,7 @@ set $filews workspace 3
 set $codews workspace 4
 set $steamws workspace 9
 set $gamews workspace 8
+set $vmws workspace 11
 # Hotkeys
 set $mod Mod4
 # Colors
@@ -32,13 +33,13 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id xinput set-prop "Synaptics TM2722-001" "libinput Tapping Enabled" 1
 #exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-exec --no-startup-id ~/.scripts/polybarstart
-exec --no-startup-id feh --bg-scale ~/.config/i3/bg.jpg
+exec --no-startup-id ~/.scripts/config/polybarstart
+exec --no-startup-id feh --bg-scale ~/.config/i3/bg4.jpg
 
 ########## Quick Fix ##########
-bindsym $mod+Control+Insert exec ~/.scripts/polybarstart
-bindsym $mod+Shift+Insert exec ~/.scripts/calibrateTouchpad
-bindsym $mod+Insert exec ~/.scripts/resetPulseAudio
+#bindsym $mod+Control+Insert exec ~/.scripts/polybarstart
+#bindsym $mod+Shift+Insert exec ~/.scripts/calibrateTouchpad
+#bindsym $mod+Insert exec ~/.scripts/resetPulseAudio
 
 ######## PROGRAMS #########
 # Games
@@ -53,16 +54,19 @@ for_window [title="^Minecraft"] floating enable
 for_window [class="^KSP"] floating enable
 #for_window [title="^Teslagrad"] floating enable
 #for_window [title="^Dolphin"] floating enable
-#for_window [title="^Minecraft$"] floating enable
+#for_window [class="^Minecraft$"] floating enable
 #for_window [title="^WineDesktop"] floating enable
 #for_window [title="^Civilization"] floating enable
 #for_window [title="^Orwell"] floating enable
 #for_window [title="^Tacoma"] floating enable
 #for_window [title="^Torchlight"] floating enable
+for_window [title="^Overcooked"] floating enable
+assign [title="Overcooked"] → $vmws
 
 # Firefox
 #assign [class="Firefox"] → $ffws
-bindsym $mod+Shift+Return $ffws; exec firefox -private-window
+#bindsym $mod+Shift+Return $ffws; exec firefox -private-window
+bindsym $mod+Shift+Return $ffws; exec "/usr/bin/firefoxnightly/firefox/firefox"
 
 # Terminal
 #assign [class="terminal"] → $terws
@@ -76,10 +80,11 @@ for_window [title="Software Center"] floating enable
 #NCMPCPP
 #assign [class="ncmpcpp"] → $musws
 #bindsym $mod+Shift+question exec mpd; exec gnome-terminal -e ncmpcpp
-bindsym $mod+Shift+question exec ~/.scripts/runNcmpcpp.sh
+bindsym $mod+Shift+question exec ~/.scripts/programs/runNcmpcpp.sh
 
 #VirtualBox
-for_window [class="VirtualBox Machine"] floating enable
+for_window [class="VirtualBox Machine"] Pfloating enable
+assign [class="VirtualBox Machine"] → $vmws
 
 #GPG
 for_window [title="pinentry"] floating enable
@@ -87,6 +92,16 @@ for_window [title="pinentry"] floating enable
 # Nautilus
 bindsym $mod+Control+Return exec nautilus
 #for_window [class="Nautilus"] floating disable
+
+# Config Files
+bindsym $mod+Insert exec ~/.scripts/config/editConfigs
+
+# Scripts
+bindsym $mod+Shift+Insert exec ~/.scripts/fixit/dmenuFix
+
+# External Display
+bindsym $mod+F11 exec ~/.screenlayout/laptopOnly.sh
+bindsym $mod+F12 exec ~/.scripts/screenres/screenRes
 
 ########## Keybindings ##########
 bindsym $mod+Shift+s exec i3lock -i ~/.config/i3/lock.png -u # Easier locking
@@ -108,10 +123,10 @@ bindsym XF86AudioNext exec playerctl next
 #bindsym Print exec "flameshot screen -c"
 bindsym Print exec "gnome-screenshot"
 #bindsym --release $mod+Print exec "flameshot"
-bindsym --release $mod+Print exec "gnome-screenshot -w"
-bindsym $mod+Shift+Print exec "flameshot gui"
+bindsym --release $mod+Print exec ~/.scripts/screenShot
+#bindsym $mod+Shift+Print exec "flameshot gui"
 # bindsym $mod+Shift+Print exec "gnome-screenshot -a"
-bindsym Control+Shift+Print exec "gnome-screenshot -i"
+#bindsym Control+Shift+Print exec "gnome-screenshot -i"
 #bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 #bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
@@ -131,11 +146,11 @@ bindsym $mod+Shift+BackSpace kill
 bindsym --release $mod+Shift+x exec xkill
 
 # Start Rofi
-bindsym $mod+d exec rofi -show drun -theme ~/.config/rofi/kasey
-#bindsym $mod+Tab exec rofi -show window -theme "~/.config/rofi/window"
-bindsym $mod+Escape exec "~/.scripts/rofi-power 'i3-msg exit'"
-bindsym $mod+Home exec "~/.scripts/rofi-wifi-menu.sh"
-bindsym $mod+Shift+m exec "~/.scripts/rofi_emoj.sh"
+bindsym $mod+d exec rofi -show drun -theme ~/.config/rofi/myThemes/kasey
+#bindsym $mod+Tab exec rofi -show window -theme "~/.config/rofi/myThemes/window"
+bindsym $mod+Escape exec "~/.scripts/menus/rofi-power 'i3-msg exit'"
+bindsym $mod+Home exec "~/.scripts/menus/rofi-wifi-menu.sh"
+bindsym $mod+Shift+m exec "~/.scripts/menus/rofi_emoj.sh"
 
 # change focus
 bindsym $mod+$left focus left
@@ -191,7 +206,7 @@ focus_follows_mouse no
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-#bindsym $mod+minus exec "~/.scripts/i3scratch"
+#bindsym $mod+minus exec "~/.scripts/config/i3scratch"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -294,7 +309,7 @@ bindsym $mod+r mode "resize"
 #############    Borders and Color    #####################
 ###########################################################
 # class                 border  backgr. text    indicator child_border
-client.focused          #2E3440 #2E3440 #fafafa #fafafa #fafafa
+client.focused          #2E3440 #2E3440 #fafafa #fafafa #505357
 client.focused_inactive #2E3440 #2E3440 #eeeeee #2E3440 #2E3440
 client.unfocused        #2E3440 #484b52 #eeeeee #fafafa #2E3440
 client.urgent           #2E3440 #2E3440 #ffffff #555757 #2E3440
@@ -304,14 +319,16 @@ client.background       #2E3440
 ########## i3-gaps integration ##########
 ###########################################################
 
-for_window [class="^.*"] border pixel 6
+for_window [class="^.*"] border pixel 3
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"] floating enable
 
 smart_borders no_gaps
+#smart_borders on
 smart_gaps on
-gaps inner 20
+gaps inner 10
 gaps outer 0
 
+# This will set terminal colors, but doesn't work well with Gnome Terminal
 #exec --no-startup-id ~/.config/wpg/wp-init.sh
