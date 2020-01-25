@@ -1,0 +1,4 @@
+#!/bin/bash
+
+scrot 
+sleep .3

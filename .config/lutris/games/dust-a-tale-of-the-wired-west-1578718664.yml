@@ -1,0 +1,7 @@
+dosbox:
+  runner_executable: /usr/bin/dosbox
+game:
+  main_file: /home/kjw/Documents/Games/Lutris/InstallFiles/Dust/dust.conf
+system:
+  resolution: 640x480
+  xephyr_fullscreen: false

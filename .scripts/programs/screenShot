@@ -1,0 +1,21 @@
+#!/bin/bash
+
+declare -a options=(" Entire Screen
+ Active Window
+ Select Area
+ Flameshot ")
+
+choice=$(echo -e "${options[@]}" | dmenu -i -p 'Take Screenshot: ')
+
+    if [ "$choice" == ' Entire Screen ' ]; then
+        gnome-screenshot
+    fi
+    if [ "$choice" == ' Active Window ' ]; then
+        gnome-screenshot -w
+    fi
+    if [ "$choice" == ' Select Area ' ]; then
+        gnome-screenshot -a
+    fi
+    if [ "$choice" == ' Select Area ' ]; then
+        flameshot gui
+    fi

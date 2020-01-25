@@ -1,0 +1,33 @@
+#!/bin/bash
+
+declare -a options=(" i3 
+ ncmpcpp 
+ mpd 
+ polybar 
+ Rofi - Launch 
+ Rofi - Power 
+ Rofi - WiFi ")
+
+choice=$(echo -e "${options[@]}" | dmenu -i -p 'Edit a config file: ')
+
+    if [ "$choice" == ' mpd ' ]; then
+        exec gedit ~/.config/mpd/config
+    fi
+    if [ "$choice" == ' ncmpcpp ' ]; then
+        exec gedit ~/.config/ncmpcpp/config
+    fi
+    if [ "$choice" == ' polybar ' ]; then
+        exec gedit ~/.config/polybar/config
+    fi
+    if [ "$choice" == ' i3 ' ]; then
+        exec gedit ~/.config/i3/config
+    fi
+    if [ "$choice" == ' Rofi - Launch ' ]; then
+        exec gedit ~/.config/rofi/myThemes/kasey.rasi
+    fi
+    if [ "$choice" == ' Rofi - Power ' ]; then
+        exec gedit ~/.config/rofi/myThemes/power.rasi
+    fi
+    if [ "$choice" == ' Rofi -  WiFi ' ]; then
+        exec gedit ~/.config/rofi/myThemes/wifi.rasi
+    fi

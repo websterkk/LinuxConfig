@@ -1,0 +1,5 @@
+game:
+  exe: /home/kjw/Documents/Games/Lutris/GameFiles/StardewValley/Stardew Valley/start.sh
+linux: {}
+system:
+  game_path: ~/Documents/Games/Lutris/GameFiles/StardewValley
