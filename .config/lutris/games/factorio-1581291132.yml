@@ -1,0 +1,5 @@
+game:
+  exe: /home/kjw/Documents/Games/Lutris/GameFiles/Factorio/bin/x64/factorio
+  working_dir: ~/Documents/Games/Lutris/GameFiles/Factorio
+linux: {}
+system: {}

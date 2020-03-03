@@ -125,7 +125,7 @@ bindsym Print exec "gnome-screenshot"
 #bindsym --release $mod+Print exec "flameshot"
 bindsym --release $mod+Print exec ~/.scripts/screenShot
 #bindsym $mod+Shift+Print exec "flameshot gui"
-# bindsym $mod+Shift+Print exec "gnome-screenshot -a"
+#bindsym $mod+Shift+Print exec "gnome-screenshot -a"
 #bindsym Control+Shift+Print exec "gnome-screenshot -i"
 #bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 #bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
@@ -151,6 +151,7 @@ bindsym $mod+d exec rofi -show drun -theme ~/.config/rofi/myThemes/kasey
 bindsym $mod+Escape exec "~/.scripts/menus/rofi-power 'i3-msg exit'"
 bindsym $mod+Home exec "~/.scripts/menus/rofi-wifi-menu.sh"
 bindsym $mod+Shift+m exec "~/.scripts/menus/rofi_emoj.sh"
+bindsym --release $mod+Shift+p exec "~/.scripts/menus/dpass"
 
 # change focus
 bindsym $mod+$left focus left

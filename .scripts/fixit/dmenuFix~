@@ -1,9 +1,9 @@
 #!/bin/bash
 
-declare -a options=(" Pass 
- Fix Touchpad 
- Pulse Audio 
- Calibrate Touch to Click 
+declare -a options=(" Pass
+ Fix Touchpad
+ Pulse Audio
+ Calibrate Touch to Click
  Config Bash Prompt ")
 
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Run Fixing Script: ')
