@@ -1,5 +1,5 @@
 game:
-  exe: /home/kjw/Documents/Games/Lutris/InstallFiles/YootTower/T2.exe
+  exe: /home/kjw/Documents/Games/Lutris/InstallFiles/Wine/YootTower/T2.exe
 system:
   game_path: ~/Documents/Games/Lutris/GameFiles/YootTower
 wine: {}

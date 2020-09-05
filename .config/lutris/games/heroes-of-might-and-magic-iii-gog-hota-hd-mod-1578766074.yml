@@ -1,5 +1,6 @@
 game:
   exe: drive_c/GOG Games/HoMM 3 Complete/HD_Launcher.exe
   prefix: /home/kjw/Documents/Games/Lutris/GameFiles/HeroesIII
+system: {}
 wine:
   version: lutris-4.20-x86_64

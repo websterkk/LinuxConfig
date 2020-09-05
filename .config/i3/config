@@ -53,7 +53,7 @@ for_window [title="^Minecraft"] floating enable
 #for_window [title="^Punch Club"] floating enable
 for_window [class="^KSP"] floating enable
 #for_window [title="^Teslagrad"] floating enable
-#for_window [title="^Dolphin"] floating enable
+for_window [class="dolphin-emu"] floating enable
 #for_window [class="^Minecraft$"] floating enable
 #for_window [title="^WineDesktop"] floating enable
 #for_window [title="^Civilization"] floating enable
@@ -61,12 +61,14 @@ for_window [class="^KSP"] floating enable
 #for_window [title="^Tacoma"] floating enable
 #for_window [title="^Torchlight"] floating enable
 for_window [title="^Overcooked"] floating enable
+for_window [class="QjackCtl"] floating enable
 assign [title="Overcooked"] → $vmws
 
 # Firefox
 #assign [class="Firefox"] → $ffws
+bindsym $mod+Shift+Return $ffws; exec firefox
 #bindsym $mod+Shift+Return $ffws; exec firefox -private-window
-bindsym $mod+Shift+Return $ffws; exec "/usr/bin/firefoxnightly/firefox/firefox"
+#bindsym $mod+Shift+Return $ffws; exec "/usr/bin/firefoxnightly/firefox/firefox"
 
 # Terminal
 #assign [class="terminal"] → $terws
@@ -77,14 +79,23 @@ bindsym $mod+Return exec i3-sensible-terminal
 for_window [title="Software Center"] floating enable
 #assign [title="Software Center"] 4
 
+# KeePassXC - Floating Login
+for_window [title="Unlock Database - KeePassXC"] floating enable
+
+
 #NCMPCPP
 #assign [class="ncmpcpp"] → $musws
 #bindsym $mod+Shift+question exec mpd; exec gnome-terminal -e ncmpcpp
 bindsym $mod+Shift+question exec ~/.scripts/programs/runNcmpcpp.sh
 
 #VirtualBox
-for_window [class="VirtualBox Machine"] Pfloating enable
-assign [class="VirtualBox Machine"] → $vmws
+for_window [class="VirtualBox Machine"] floating enable
+#assign [class="VirtualBox Machine"] → $vmws
+assign [title="10.88.117.91"] 10
+for_window [class="Credential Manager UI Host"] floating enable
+for_window [title="BBar"] floating enable
+for_window [title="^Remote Desktop Connection$"] floating enable
+for_window [title="^VMware Horizon Client$"] floating enable
 
 #GPG
 for_window [title="pinentry"] floating enable
@@ -108,10 +119,10 @@ bindsym $mod+Shift+s exec i3lock -i ~/.config/i3/lock.png -u # Easier locking
 
 ### Backlight ###
 # Note: If light doesn't work, install xbacklight and 1) uncomment the two lines below.
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-#bindsym XF86MonBrightnessUp exec light -A 10 # Increase Brightness
-#bindsym XF86MonBrightnessDown exec light -U 10 # Decrease Brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec light -A 5 # Increase Brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # Decrease Brightness
 
 ### Media Player ###
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -123,10 +134,10 @@ bindsym XF86AudioNext exec playerctl next
 #bindsym Print exec "flameshot screen -c"
 bindsym Print exec "gnome-screenshot"
 #bindsym --release $mod+Print exec "flameshot"
-bindsym --release $mod+Print exec ~/.scripts/screenShot
+#bindsym --release $mod+Print exec ~/.scripts/screenShot
 #bindsym $mod+Shift+Print exec "flameshot gui"
-#bindsym $mod+Shift+Print exec "gnome-screenshot -a"
-#bindsym Control+Shift+Print exec "gnome-screenshot -i"
+bindsym $mod+Shift+Print exec "gnome-screenshot -a"
+bindsym Control+Shift+Print exec "gnome-screenshot -i"
 #bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 #bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 

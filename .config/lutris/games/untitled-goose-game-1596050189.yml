@@ -1,0 +1,5 @@
+game:
+  exe: /home/kjw/Documents/Games/Lutris/InstallFiles/Wine/UntitledGooseGame/Untitled.exe
+system: {}
+wine:
+  version: system

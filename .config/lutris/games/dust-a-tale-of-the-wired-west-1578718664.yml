@@ -1,7 +1,9 @@
 dosbox:
-  runner_executable: /usr/bin/dosbox
+  exit: false
+  runner_executable: /snap/dosbox-staging/31/bin/dosbox
+  scaler: none
 game:
-  main_file: /home/kjw/Documents/Games/Lutris/InstallFiles/Dust/dust.conf
+  main_file: /home/kjw/Documents/Games/Lutris/InstallFiles/dosbox/Dust/duststaging.conf
 system:
-  resolution: 640x480
+  resolution: 'off'
   xephyr_fullscreen: false

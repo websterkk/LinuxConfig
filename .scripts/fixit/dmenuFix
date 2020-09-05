@@ -1,16 +1,12 @@
 #!/bin/bash
 
-declare -a options=(" Pass 
- Fix Touchpad 
+declare -a options=(" Fix Touchpad 
  Pulse Audio 
  Calibrate Touch to Click 
  Config Bash Prompt ")
 
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Run Fixing Script: ')
 
-    if [ "$choice" == ' Pass ' ]; then
-        exec ~/.scripts/menus/pass
-    fi
     if [ "$choice" == ' Fix Touchpad ' ]; then
         exec ~/.scripts/fixit/fixScroll
     fi

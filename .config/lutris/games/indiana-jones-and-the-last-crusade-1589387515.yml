@@ -1,0 +1,6 @@
+game:
+  game_id: indy3
+  path: ~/Downloads/Indiana Jones and the Last Crusade (Floppy DOS VGA)
+  subtitles: false
+scummvm: {}
+system: {}

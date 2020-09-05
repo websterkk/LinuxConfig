@@ -1,21 +1,33 @@
 #!/bin/bash
 
-declare -a options=(" Laptop Only
- TV Only
- Two Screens Extended
- Two Screens Duplicated ")
+declare -a options=(" Laptop Only 
+ TV Only 
+ TV Extended 
+ TV Duplicated 
+ Monitor Only 
+ Monitor Extended 
+ Monitor Duplicated ")
 
 choice=$(echo -e "${options[@]}" | dmenu -i -p 'Select Display Configuration: ')
 
     if [ "$choice" == ' Laptop Only ' ]; then
-        exec ~/.screenlayout/laptopOnly.sh
+        exec ~/.scripts/screenres/scripts/laptopOnly.sh
     fi
     if [ "$choice" == ' TV Only ' ]; then
-        exec ~/.screenlayout/externalOnly.sh
+        exec ~/.scripts/screenres/scripts/tvOnly.sh
     fi
-    if [ "$choice" == ' Two Screens Extended ' ]; then
-        exec ~/.screenlayout/twoScreenExtended.sh
+    if [ "$choice" == ' TV Extended ' ]; then
+        exec ~/.scripts/screenres/scripts/tvExt.sh
     fi
-    if [ "$choice" == ' Two Screens Duplicated ' ]; then
-        exec ~/.screenlayout/twoScreenDup.sh
+    if [ "$choice" == ' TV Duplicated ' ]; then
+        exec ~/.scripts/screenres/scripts/tvDup.sh
+    fi
+    if [ "$choice" == ' Monitor Only ' ]; then
+        exec ~/.scripts/screenres/scripts/monitorOnly.sh
+    fi
+    if [ "$choice" == ' Monitor Extended ' ]; then
+        exec ~/.scripts/screenres/scripts/monitorExt.sh
+    fi
+    if [ "$choice" == ' Monitor Duplicated ' ]; then
+        exec ~/.scripts/screenres/scripts/monitorDup.sh
     fi

@@ -1,0 +1,6 @@
+game:
+  game_id: atlantis
+  path: ~/Downloads/Indiana Jones and the Fate of Atlantis (CD DOS)
+  subtitles: true
+scummvm: {}
+system: {}

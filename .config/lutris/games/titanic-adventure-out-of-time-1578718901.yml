@@ -1,7 +1,7 @@
 dosbox:
-  fullscreen: true
-  runner_executable: /usr/bin/dosbox
+  fullscreen: false
+  runner_executable: /snap/dosbox-staging/31/bin/dosbox
 game:
-  main_file: /home/kjw/Documents/Games/Lutris/InstallFiles/Titanic/dosbox_TitanicAOoT.conf
+  main_file: /home/kjw/Documents/Games/Lutris/InstallFiles/dosbox/Titanic/titanicstaging.conf
 system:
-  resolution: 800x600
+  resolution: 'off'
